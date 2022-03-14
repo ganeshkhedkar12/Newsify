@@ -8,17 +8,100 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Newsify-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Newsify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsifyViewController" id="BYZ-38-t0r" customClass="NewsifyViewController" customModule="Newsify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="038-6P-4Ei">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NewsTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsTableViewCell" rowHeight="90" id="VTg-3h-PSy" customClass="NewsTableViewCell" customModule="Newsify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VTg-3h-PSy" id="58v-vM-9GF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-hg-JaB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwM-yY-xe9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <color key="textColor" red="0.31372550129999999" green="0.13725490870000001" blue="0.37254902719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acc-Od-rkc">
+                                                            <rect key="frame" x="0.0" y="59.5" width="414" height="21.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <color key="textColor" red="0.82352941180000006" green="0.72063269149999998" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOW-eW-Tyc">
+                                                            <rect key="frame" x="0.0" y="89" width="414" height="1"/>
+                                                            <color key="backgroundColor" red="0.31372550129999999" green="0.13725490870000001" blue="0.37254902719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="EiD-hk-vA4"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="EOW-eW-Tyc" firstAttribute="leading" secondItem="b5I-hg-JaB" secondAttribute="leading" id="5Vf-8I-NUB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EOW-eW-Tyc" secondAttribute="trailing" id="CGy-C5-NQ3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EOW-eW-Tyc" secondAttribute="bottom" id="DlF-fU-U4T"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="b5I-hg-JaB" secondAttribute="trailing" id="8Dj-kw-tdf"/>
+                                                <constraint firstAttribute="bottom" secondItem="b5I-hg-JaB" secondAttribute="bottom" id="BT3-0B-jCH"/>
+                                                <constraint firstItem="b5I-hg-JaB" firstAttribute="top" secondItem="58v-vM-9GF" secondAttribute="top" id="HQe-mm-Ieg"/>
+                                                <constraint firstItem="b5I-hg-JaB" firstAttribute="leading" secondItem="58v-vM-9GF" secondAttribute="leading" id="kDw-BY-Dyq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="acc-Od-rkc" id="1YI-ND-YVX"/>
+                                            <outlet property="titleLabel" destination="MwM-yY-xe9" id="CHO-SE-BP2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="7wt-C4-LZd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2tr-el-5d4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="038-6P-4Ei" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="PbM-h0-MSs"/>
+                            <constraint firstItem="038-6P-4Ei" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eaz-lZ-ayQ"/>
+                            <constraint firstItem="038-6P-4Ei" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vDL-rZ-fa2"/>
+                            <constraint firstItem="038-6P-4Ei" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vIo-op-SAr"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JV4-4R-9nt"/>
+                    <navigationItem key="navigationItem" title="Newsify" id="JV4-4R-9nt">
+                        <barButtonItem key="rightBarButtonItem" title="US" style="plain" id="wtX-P6-rGm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showOptions:" destination="BYZ-38-t0r" id="ZmD-xe-k9w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="flagIcon" destination="wtX-P6-rGm" id="EhV-lO-VEf"/>
+                        <outlet property="newsTableView" destination="038-6P-4Ei" id="b8D-vn-mY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,6 +115,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L9G-dW-foT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -44,8 +130,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
