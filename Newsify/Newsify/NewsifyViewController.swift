@@ -47,11 +47,21 @@ class NewsifyViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 fatalError("NavigationController not found")
             }
             
-            guard let settingsTVC = nav.viewControllers.first as? SettingViewController else {
+            guard let settingsVC = nav.viewControllers.first as? SettingViewController else {
                 fatalError("SettingViewController not found")
             }
             
-            settingsTVC.delegate = self
+            settingsVC.delegate = self
+        } else if segue.identifier == "showDetails" {
+            guard let nav = segue.destination as? UINavigationController else {
+                fatalError("NavigationController not found")
+            }
+            
+            guard let newsDetailsVC = nav.viewControllers.first as? NewsDetailsViewController else {
+                fatalError("SettingViewController not found")
+            }
+            
+            newsDetailsVC.newsVM = sender as? NewsViewModel
         }
         
     }
@@ -78,9 +88,14 @@ extension NewsifyViewController {
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
         cell.titleLabel.text = newsVM.title
-        cell.descriptionLabel.text = newsVM.description
+        cell.descriptionLabel.text = newsVM.description + " - " + newsVM.author + "  - " + newsVM.publishingDate
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newsVM: NewsViewModel = self.newsListViewModel.NewsAtIndex(indexPath.row)
+        self.performSegue(withIdentifier: "showDetails", sender: newsVM)
     }
 
 }

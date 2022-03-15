@@ -30,6 +30,8 @@
 		529B517627E08AF300A5B83C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B517427E08AF300A5B83C /* SettingViewController.swift */; };
 		529B517827E0964C00A5B83C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B517727E0964C00A5B83C /* SettingsViewModel.swift */; };
 		529B517927E0964C00A5B83C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B517727E0964C00A5B83C /* SettingsViewModel.swift */; };
+		529B517B27E0B60D00A5B83C /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B517A27E0B60D00A5B83C /* NewsDetailsViewController.swift */; };
+		529B517C27E0B60D00A5B83C /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B517A27E0B60D00A5B83C /* NewsDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 		529B517127E0872700A5B83C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		529B517427E08AF300A5B83C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		529B517727E0964C00A5B83C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		529B517A27E0B60D00A5B83C /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,7 @@
 				529B517127E0872700A5B83C /* Constants.swift */,
 				529B517427E08AF300A5B83C /* SettingViewController.swift */,
 				529B517727E0964C00A5B83C /* SettingsViewModel.swift */,
+				529B517A27E0B60D00A5B83C /* NewsDetailsViewController.swift */,
 				526D3C4327DF528E00836E60 /* Main.storyboard */,
 				526D3C4627DF529000836E60 /* Assets.xcassets */,
 				526D3C4827DF529000836E60 /* LaunchScreen.storyboard */,
@@ -300,6 +304,7 @@
 				526D3C3E27DF528E00836E60 /* AppDelegate.swift in Sources */,
 				529B517827E0964C00A5B83C /* SettingsViewModel.swift in Sources */,
 				529B517527E08AF300A5B83C /* SettingViewController.swift in Sources */,
+				529B517B27E0B60D00A5B83C /* NewsDetailsViewController.swift in Sources */,
 				526D3C7127DF696700836E60 /* NewsTableViewCell.swift in Sources */,
 				526D3C4027DF528E00836E60 /* SceneDelegate.swift in Sources */,
 				529B517227E0872700A5B83C /* Constants.swift in Sources */,
@@ -314,6 +319,7 @@
 				522B0B0527DF6E9B00FEB316 /* NewsList.swift in Sources */,
 				522B0B0827DF786B00FEB316 /* NewsViewModel.swift in Sources */,
 				522B0B0B27DF799B00FEB316 /* WebService.swift in Sources */,
+				529B517C27E0B60D00A5B83C /* NewsDetailsViewController.swift in Sources */,
 				526D3C5527DF529000836E60 /* NewsifyTests.swift in Sources */,
 				529B517627E08AF300A5B83C /* SettingViewController.swift in Sources */,
 				529B517927E0964C00A5B83C /* SettingsViewModel.swift in Sources */,
@@ -495,6 +501,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +530,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

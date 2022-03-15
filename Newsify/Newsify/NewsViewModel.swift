@@ -64,6 +64,17 @@ extension NewsListViewModel {
         }
     }
     
+    func setImageFrom(imageURL: URL, completionHandler: @escaping (Data) -> ()) {
+        let task = URLSession.shared.downloadTask(with: imageURL, completionHandler: { (location, response, error) in
+            if let data = try? Data(contentsOf: imageURL) {
+                DispatchQueue.main.async {
+                    completionHandler(data)
+                }
+            }
+        })
+        task.resume()
+    }
+    
 }
 
 extension NewsListViewModel {
@@ -99,5 +110,28 @@ extension NewsViewModel {
     
     var description: String {
         return self.news.description ?? ""
+    }
+    
+    var author : String {
+        return self.news.author ?? "Unknown"
+    }
+    
+    var publishingDate: String {
+//        "2022-03-15T05:03:19Z"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
+        let dateString: String = self.news.publishedAt ?? ""
+        var finalDateString: String = ""
+        guard let dateFromString = dateFormatter.date(from: dateString) else {
+            return ""
+        }
+        dateFormatter.dateFormat = "EEE, MMM d, yyyy"
+        finalDateString = dateFormatter.string(from: dateFromString)
+        
+        return finalDateString
+    }
+    
+    var photoURL: String {
+        return self.news.urlToImage ?? ""
     }
 }
