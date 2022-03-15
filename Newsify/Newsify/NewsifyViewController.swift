@@ -12,7 +12,7 @@ class NewsifyViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var flagIcon: UIBarButtonItem!
     
-    private var newsListViewModel: NewsListViewModel!
+    private var newsListViewModel: NewsListViewModel = NewsListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +23,12 @@ class NewsifyViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func setUpView() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
-        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=aed8a18b934f4f26ada81f57b774c0cb")!
-        
-        Webservice().getAllNews(url: url) { allNews in
-            
-            if let allNews = allNews {
-                
-                self.newsListViewModel = NewsListViewModel(news: allNews)
-                
-                DispatchQueue.main.async {
-                    self.newsTableView.reloadData()
-                }
-            }
-        }
+        self.newsListViewModel.delegate = self
+        getNewsFromServer()
+    }
+    
+    private func getNewsFromServer() {
+        self.newsListViewModel.getAllNewsFromWeb()
     }
     
     @IBAction func showOptions(_ sender: Any) {
@@ -72,5 +63,13 @@ extension NewsifyViewController {
         return cell
     }
 
+}
+
+extension NewsifyViewController : RefreshYourViewDelegate{
+    func refreshView() {
+        DispatchQueue.main.async {
+            self.newsTableView.reloadData()
+        }
+    }
 }
 
