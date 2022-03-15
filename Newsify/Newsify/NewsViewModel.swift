@@ -15,6 +15,7 @@ protocol RefreshYourViewDelegate{
 class NewsListViewModel: RefreshYourViewDelegate {
     var news: [News] = []
     var delegate : RefreshYourViewDelegate!
+    var lastSelectedCountry: Country!
 }
 
 extension NewsListViewModel {
@@ -41,9 +42,9 @@ extension NewsListViewModel {
         // get the default settings for temperature
         let userDefaults = UserDefaults.standard
         let countryCode = (userDefaults.value(forKey: "countryCode") as? String) ?? "us" //ca
+        self.lastSelectedCountry = Country(rawValue: countryCode)
         
-        let url = Constants.Urls.urlNews(countryCode: countryCode)//URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=aed8a18b934f4f26ada81f57b774c0cb")!
-        
+        let url = Constants.Urls.urlNews(countryCode: countryCode)
         Webservice().getAllNews(url: url) { [weak self] allNews in
             
             if let allNews = allNews {
@@ -61,6 +62,21 @@ extension NewsListViewModel {
         if let delegate_ = self.delegate {
             delegate_.refreshView()
         }
+    }
+    
+}
+
+extension NewsListViewModel {
+    
+    func getCurrentCountryCode() -> String {
+        let userDefaults = UserDefaults.standard
+        let countryCode = (userDefaults.value(forKey: "countryCode") as? String) ?? "us"
+        
+        return countryCode
+    }
+    
+    func updateCountry(to country: Country) {
+        getAllNewsFromWeb()
     }
     
 }

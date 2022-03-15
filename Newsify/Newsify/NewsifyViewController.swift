@@ -17,7 +17,6 @@ class NewsifyViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         setUpView()
     }
     
@@ -25,6 +24,12 @@ class NewsifyViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.newsListViewModel.delegate = self
         getNewsFromServer()
+        setSettings()
+    }
+    
+    func setSettings() {
+        let countryCode = self.newsListViewModel.getCurrentCountryCode()
+        self.flagIcon.title = Country(rawValue: countryCode)?.displayShortName
     }
     
     private func getNewsFromServer() {
@@ -32,7 +37,22 @@ class NewsifyViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     @IBAction func showOptions(_ sender: Any) {
-        print("Show Options")
+        self.performSegue(withIdentifier: "showSettings", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showSettings" {
+            guard let nav = segue.destination as? UINavigationController else {
+                fatalError("NavigationController not found")
+            }
+            
+            guard let settingsTVC = nav.viewControllers.first as? SettingViewController else {
+                fatalError("SettingViewController not found")
+            }
+            
+            settingsTVC.delegate = self
+        }
         
     }
     
@@ -42,11 +62,11 @@ extension NewsifyViewController {
     
     //MARK:- Table View Delegates and DataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.newsListViewModel == nil ? 0 : self.newsListViewModel.numberOfSections
+        return self.newsListViewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.newsListViewModel == nil ? 0 : self.newsListViewModel.numberOfRowsInSection(section)
+        return  self.newsListViewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,6 +89,17 @@ extension NewsifyViewController : RefreshYourViewDelegate{
     func refreshView() {
         DispatchQueue.main.async {
             self.newsTableView.reloadData()
+        }
+    }
+}
+
+extension NewsifyViewController: SettingsDelegate {
+    
+    func settingsDone(vm: SettingsViewModel) {
+        if self.newsListViewModel.lastSelectedCountry.rawValue != vm.selectedCountry.rawValue {
+            newsListViewModel.updateCountry(to: vm.selectedCountry)
+            setSettings()
+            newsTableView.reloadData()
         }
     }
 }
