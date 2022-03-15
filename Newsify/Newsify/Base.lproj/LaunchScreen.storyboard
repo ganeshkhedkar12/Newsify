@@ -16,6 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsify" translatesAutoresizingMaskIntoConstraints="NO" id="aVC-TH-Z5y">
+                                <rect key="frame" x="157" y="238" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8gQ-os-iFl"/>
+                                    <constraint firstAttribute="height" constant="100" id="qwU-Ei-jUE"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-Ua-LtL">
                                 <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <subviews>
@@ -40,7 +47,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
+                            <constraint firstItem="aVC-TH-Z5y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SP3-Ff-TIr"/>
                             <constraint firstItem="lAR-Ua-LtL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tes-30-kzu"/>
+                            <constraint firstItem="lAR-Ua-LtL" firstAttribute="top" secondItem="aVC-TH-Z5y" secondAttribute="bottom" constant="10" id="V00-BN-7MW"/>
                             <constraint firstItem="lAR-Ua-LtL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zud-hr-p1v"/>
                         </constraints>
                     </view>
@@ -51,6 +60,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="newsify" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
