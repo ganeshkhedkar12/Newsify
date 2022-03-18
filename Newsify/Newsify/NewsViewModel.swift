@@ -38,8 +38,6 @@ extension NewsListViewModel {
 extension NewsListViewModel {
     
     func getAllNewsFromWeb() {
-        
-        // get the default settings for temperature
         let userDefaults = UserDefaults.standard
         let countryCode = (userDefaults.value(forKey: "countryCode") as? String) ?? "us" //ca
         self.lastSelectedCountry = Country(rawValue: countryCode)
@@ -55,7 +53,6 @@ extension NewsListViewModel {
             }
             self?.refreshView()
         }
-        
     }
     
     func refreshView() {
@@ -74,7 +71,6 @@ extension NewsListViewModel {
         })
         task.resume()
     }
-    
 }
 
 extension NewsListViewModel {
